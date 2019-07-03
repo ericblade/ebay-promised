@@ -11,7 +11,8 @@
     "object-to-xml": "1.0.0",
     "request": "^2.74.0",
     "request-promise": "^4.1.0",
-    "simple-rate-limiter": "^0.2.3"
+    "simple-rate-limiter": "^0.2.3",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.9.0",
@@ -27,7 +28,9 @@
     "clean": "rm -rf $npm_package_config_out",
     "encrypt": "travis encrypt-file test/fixtures/auth.private.js test/fixtures/auth.private.js.enc --add",
     "preversion": "npm run clean && npm run compile",
-    "postpublish": "git push --tags"
+    "postpublish": "git push --tags",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -42,5 +45,6 @@
   "config": {
     "out": "lib",
     "in": "es6"
-  }
+  },
+  "snyk": true
 }
